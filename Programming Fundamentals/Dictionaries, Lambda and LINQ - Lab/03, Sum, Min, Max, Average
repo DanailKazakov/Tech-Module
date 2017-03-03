@@ -1,0 +1,29 @@
+<?php
+
+fscanf(STDIN, "%d", $num);
+$arr = array();
+for ($i = 0; $i < $num; $i++){
+    fscanf(STDIN, "%d", $tempNum);
+    array_push($arr, $tempNum);
+}
+
+$count = count($arr);
+
+$sum = 0;
+$min = $arr[0];
+$max = $arr[0];
+$average = 0;
+
+for ($i = 0; $i < $count; $i++){
+    $sum = $sum + $arr[$i];
+    if ($min > $arr[$i]){
+        $min = $arr[$i];
+    }
+    if ($max < $arr[$i]){
+        $max = $arr[$i];
+    }
+}
+
+$average = $sum / $count;
+
+echo sprintf("Sum = %d\nMin = %d\nMax = %d\nAverage = %s", $sum, $min, $max, trim($average, "0"));
